@@ -19,11 +19,12 @@ while True:
         instructores.append(nombre)
         print("El instructor", nombre, "ha sido agregado a la lista.")
     elif opcion == "2":
-        
-        print("Lista de instructores:")
-        for l, instructor in enumerate(sorted(instructores)):
-            print(f"{l+1}. {instructor}")
-            
+        if len(instructores) > 0:
+            print("Lista de instructores:")
+            for l, instructor in enumerate(sorted(instructores)):
+                print(f"{l+1}. {instructor}")
+        else:
+            print("La lista de instructores está vacía.")
     elif opcion == "3":
        
         index = int(input("Ingrese el índice del instructor a modificar: "))
@@ -53,11 +54,10 @@ while True:
         if not encontrado:
             print("El instructor no fue encontrado.")
     elif opcion == "6":
-      
-        instructores.sort()
-        print("Lista de instructores ordenada de la A-Z:")
-        for instructor in instructores: 
-            print(instructor)
+        instructores_ordenados = sorted(instructores)
+        print("Lista de instructores ordenada alfabéticamente:")
+        for l, instructor in enumerate(instructores_ordenados, start=1):
+            print(f"{l}. {instructor}")
     elif opcion == "7":
         
         print("Saliendo del programa... Adios!")
